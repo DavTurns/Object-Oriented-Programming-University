@@ -1,0 +1,6 @@
+echo script wird kompiliert...
+g++ -std=c++20 FruitApp.cpp UI/FruitUI.cpp Repository/FruitRepo.cpp Domain/Fruit.cpp Controller/FruitController.cpp Tests/tests.cpp -o run.exe
+echo fertig
+
+echo programm wird ausgeführt...
+run.exe

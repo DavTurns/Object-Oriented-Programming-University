@@ -1,0 +1,14 @@
+id,type,first_use_date,last_location,km,state
+BSM,BMW,2022/04/23,Florida,1200,in_use
+ALO,Mercedes,2023/07/05,Rome Italy,340,in_use
+SRI,BMW,2020/04/19,Florida,24423,reserved
+PLK,Toyota,2002/02/02,Rome,23,out_of_use
+ASS,Toyota,2012/02/04,Rome,9323,in_service
+APP,Toyota,2023/04/12,Rome,26523,reserved
+BAL,Toyota,2022/12/02,Slovenia,23123,out_of_use
+CCC,Porsche,2023/03/02,Corfu,8323,in_use
+KLA,Lambo,2021/10/09,Rimini,96,parked
+ABC,type1,2023/12/03,mdoamwdo,333,parked
+sko,t1,01.01.2022,aowjdaowjd,1093,parked
+KlA,Lambo,2021/10/09,Rimini,96,reserved
+skr,t3,10.10.2022,ppp,1013,parked

@@ -1,0 +1,6 @@
+echo script wird kompiliert...
+g++ -std=c++20 PREFIX_length_test.cpp PREFIX_length.cpp -o run.exe
+echo fertig
+
+echo programm wird ausgeführt...
+run.exe

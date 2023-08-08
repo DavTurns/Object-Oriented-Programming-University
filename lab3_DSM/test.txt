@@ -1,0 +1,6 @@
+Motorrad,2,Rad
+Motorrad,1,Motor
+Motorrad,1,Benzinkanister
+Motorrad,1,Auspuff
+Rad,1,Reifen
+Motor,4,Zylinder

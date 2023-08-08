@@ -1,0 +1,6 @@
+echo script wird kompiliert...
+g++ -std=c++20 L3_Svistea_David_DSM.cpp L3_Svistea_David_DSM_test.cpp -o run.exe
+echo fertig
+
+echo programm wird ausgeführt...
+run.exe
