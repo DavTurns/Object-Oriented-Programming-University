@@ -1,7 +1,3 @@
-//
-// Created by Maria on 5/21/2023.
-//
-
 #ifndef LAB5_II_MEMORYREPO_H
 #define LAB5_II_MEMORYREPO_H
 
@@ -13,7 +9,7 @@
 
 using namespace std;
 
-namespace memoryrepo{
+namespace memoryrepo {
 
     template<class Obj>
     class MemoryRepo : public Repo<Obj> {
@@ -57,7 +53,7 @@ namespace memoryrepo{
             output: true if Obj with same id exists
                     false if Obj not updated successfully because Obj with same id as Obj_ptr doesnt exist
             */
-            if(remove(Obj_ptr->get_id())==true) {
+            if (remove(Obj_ptr->get_id()) == true) {
                 add(Obj_ptr);
                 return true;
             }

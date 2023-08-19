@@ -1,13 +1,10 @@
-//
-// Created by Latitude on 24.05.2023.
-//
-
 #include "ScooterFileRepo.h"
 
 #include <memory>
 #include <algorithm>
 #include <string>
 #include <sstream>
+#include <filesystem>
 
 using namespace std;
 
@@ -62,9 +59,20 @@ vector<shared_ptr<domain::Scooter>> ScooterFileRepo::to_obj_list(string input) {
             }
         }
         // Create a new Scooter object and add it to the vector
-        shared_ptr<domain::Scooter> scooter = make_shared<domain::Scooter>(id, type, first_use_date, last_location, km, state);
+        shared_ptr<domain::Scooter> scooter = make_shared<domain::Scooter>(id, type, first_use_date, last_location, km,
+                                                                           state);
         obj_list.push_back(scooter);
     }
     return obj_list;
+}
+
+void ScooterFileRepo::create_new_file() {
+    filesystem::path filePath = filepath;
+    filesystem::create_directories(filePath.parent_path());
+    ofstream file(filepath);
+    file << "id,type,first_use_date,last_location,km,state";
+    file.close();
+
+    cout << "Create new scooters.csv file on: " << filepath << " is created\n";
 }
 

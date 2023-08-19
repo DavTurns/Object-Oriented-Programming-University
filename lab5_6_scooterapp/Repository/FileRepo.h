@@ -1,7 +1,3 @@
-//
-// Created by Maria on 5/21/2023.
-//
-
 #ifndef LAB5_II_FILEREPO_H
 #define LAB5_II_FILEREPO_H
 
@@ -14,7 +10,6 @@
 #include <filesystem>
 #include <fstream>
 #include <map>
-
 
 using namespace std;
 
@@ -36,6 +31,7 @@ public:
 
     virtual vector<shared_ptr<Obj>> to_obj_list(string) = 0;
 
+    virtual void create_new_file() = 0;
 
     explicit FileRepo(string &path) {
         filepath = path;
@@ -56,16 +52,18 @@ public:
         //string content;
         ifstream file(filepath);
         if (!file) {
-            std::cerr << "Error opening the file." << std::endl;
+            std::cerr << "Error opening the file."<<std::endl;
+            create_new_file();
+
             return "";
         }
         std::string content;
         std::string line;
-        while(getline(file, line)){
+        while (getline(file, line)) {
             line += "\n";
-            content+=line;
+            content += line;
         }
-        content.erase(content.length()-1);
+        content.erase(content.length() - 1);
         file.close();
         return content;
     }
@@ -124,8 +122,6 @@ public:
         string filecontent = read_from_file();
         return to_obj_list(filecontent);
     }
-
-
 };
 
 

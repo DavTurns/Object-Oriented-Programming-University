@@ -1,7 +1,3 @@
-//
-// Created by Maria on 5/13/2023.
-//
-
 #pragma once
 
 #include <iostream>
@@ -17,9 +13,17 @@ namespace ui {
     public:
         UI(shared_ptr<controller::Controller> ctrl);
 
-        void menu();
+        void main_menu();
 
-        void scooters();
+        void menu_customer();
+
+        void menu_manager();
+
+        void print_customer_menu();
+
+        void print_manager_menu();
+
+        void print_all_scooters();
 
         void show_scooters(vector<shared_ptr<domain::Scooter>>);
 
@@ -34,8 +38,6 @@ namespace ui {
         void get_by_age();
 
         void get_by_km();
-
-        void text();
 
         void reserved_by_client();
 

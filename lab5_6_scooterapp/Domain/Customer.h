@@ -1,7 +1,3 @@
-//
-// Created by Latitude on 24.05.2023.
-//
-
 #ifndef LAB5_II_CUSTOMER_H
 #define LAB5_II_CUSTOMER_H
 
@@ -25,13 +21,13 @@ namespace domain {
 
         string get_name();
 
-        vector<string> get_scooterlist();
+        vector<string> get_reserved_scooters();
 
-        bool add_scooter(string &id);
+        bool add_scooter(string id);
 
-        bool remove_scooter(string &id);
+        bool remove_scooter(string id);
 
-        bool has_scooter(string &id);
+        bool has_scooter(string id);
     };
 }
 

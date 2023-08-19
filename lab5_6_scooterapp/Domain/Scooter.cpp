@@ -1,13 +1,12 @@
-//
-// Created by Maria on 5/13/2023.
-//
-
 #include "Scooter.h"
+
 using namespace std;
+
 #include <exception>
+
 namespace domain {
-    Scooter::Scooter( string id, string type, string first_use_date, string last_location, int km, State state){
-        if(id.size()!=3){
+    Scooter::Scooter(string id, string type, string first_use_date, string last_location, int km, State state) {
+        if (id.size() != 3) {
             throw exception();
         }
         this->id = id;
@@ -19,25 +18,24 @@ namespace domain {
     }
 
     //getters
-    string Scooter::get_id() {return id;}
+    string Scooter::get_id() { return id; }
 
-    string Scooter::get_first_use_date() {return first_use_date;}
+    string Scooter::get_first_use_date() { return first_use_date; }
 
-    int Scooter::get_km() {return km;}
+    int Scooter::get_km() { return km; }
 
-    State Scooter::get_state() {return state;}
+    State Scooter::get_state() { return state; }
 
-    string Scooter::get_type() {return type;}
+    string Scooter::get_type() { return type; }
 
-    string Scooter::get_last_location() {return last_location;}
+    string Scooter::get_last_location() { return last_location; }
 
     //setters
-    void Scooter::set_km(int new_km) {km = new_km;}
+    void Scooter::set_km(int new_km) { km = new_km; }
 
-    void Scooter::set_last_location(string new_location) {last_location=new_location;}
+    void Scooter::set_last_location(string new_location) { last_location = new_location; }
 
-    void Scooter::set_state(State new_state) {state=new_state;}
-
+    void Scooter::set_state(State new_state) { state = new_state; }
 
 
 }
