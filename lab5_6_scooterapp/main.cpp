@@ -15,19 +15,27 @@
 
 //change it to your preferences
 //if files don't exist, they will be created and the sample data will be added automatically
-const string PATH_CUSTOMER_REPO = "C://Users//customers.csv";
-const string PATH_SCOOTER_REPO = "C://Users//scooters.csv";
+const string PATH_CUSTOMER_REPO = "./customers.csv";
+const string PATH_SCOOTER_REPO = "./scooters.csv";
 
 int main() {
-
     test::test_repo();
     test::test_controller();
 
     string input;
     int option;
 
+
+    std::cout << "  ____                  _                             \n"
+                 " / ___|  ___ ___   ___ | |_ ___ _ __ __ _ _ __  _ __  \n"
+                 " \\___ \\ / __/ _ \\ / _ \\| __/ _ \\ '__/ _` | '_ \\| '_ \\ \n"
+                 "  ___) | (_| (_) | (_) | ||  __/ | | (_| | |_) | |_) |\n"
+                 " |____/ \\___\\___/ \\___/ \\__\\___|_|  \\__,_| .__/| .__/ \n"
+                 "                                         |_|   |_|    \n";
+
     while (true) {
-        cout << "1.Persistent\n"
+        cout << "\nSelect mode:\n\n"
+                "1.Persistent\n"
                 "2.Non-persistent\n";
         cin >> input;
 
@@ -54,7 +62,6 @@ int main() {
         customer_repo = std::make_shared<memoryrepo::MemoryRepo<domain::Customer>>();
     }
 
-    //std::shared_ptr<memoryrepo::MemoryRepo<domain::Scooter>> repo1 = std::make_shared<memoryrepo::MemoryRepo<domain::Scooter>>();
     std::shared_ptr<controller::Controller> ctrl = std::make_shared<controller::Controller>(reposcooter, customer_repo);
     ui::UI u(ctrl);
     u.main_menu();

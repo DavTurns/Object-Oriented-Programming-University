@@ -19,7 +19,11 @@ namespace domain {
     }
 
     bool Customer::add_scooter(string id) {
-        if (!has_scooter(id)) reserved_scooters.push_back(id);
+        if (!has_scooter(id)) {
+            reserved_scooters.push_back(id);
+            return true;
+        }
+        return false;
     }
 
     bool Customer::remove_scooter(string id) {

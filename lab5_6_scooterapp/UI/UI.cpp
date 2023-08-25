@@ -8,16 +8,16 @@ namespace ui {
     UI::UI(shared_ptr<controller::Controller> c) : ctrl(c) {
 
         //adding sampledata in case that user runs program in non-persistent mode
-        ctrl->add("ABC", "type1", "2023/12/03", "Brasov Romania", 12, domain::parked);
-        ctrl->add("BSM", "BMW", "2022/04/23", "Florida", 1200, domain::in_use);
-        ctrl->add("ALO", "Mercedes", "2023/07/05", "Rome Italy", 340, domain::in_use);
-        ctrl->add("SRI", "BMW", "2020/04/19", "Florida", 24423, domain::parked);
-        ctrl->add("PLK", "Toyota", "2002/02/02", "Rome", 23, domain::out_of_use);
+        ctrl->add("ABC", "Tier", "2023/12/03", "Brasov Romania", 12, domain::parked);
+        ctrl->add("BSM", "Lime", "2022/04/23", "Florida", 1200, domain::in_use);
+        ctrl->add("ALO", "Bolt", "2023/07/05", "Rome Italy", 340, domain::in_use);
+        ctrl->add("SRI", "Bolt", "2020/04/19", "Florida", 24423, domain::parked);
+        ctrl->add("PLK", "Tier", "2002/02/02", "Rome", 23, domain::out_of_use);
         ctrl->add("ASS", "Toyota", "2012/02/04", "Rome", 9323, domain::in_service);
         ctrl->add("APP", "Toyota", "2023/04/12", "Rome", 26523, domain::parked);
         ctrl->add("BAL", "Toyota", "2022/12/02", "Slovenia", 23123, domain::out_of_use);
-        ctrl->add("CCC", "Porsche", "2023/03/02", "Corfu", 8323, domain::in_use);
-        ctrl->add("KlA", "Lambo", "2021/10/09", "Rimini", 96, domain::parked);
+        ctrl->add("CCC", "Tier", "2023/03/02", "Corfu", 8323, domain::in_use);
+        ctrl->add("KlA", "Lime", "2021/10/09", "Rimini", 96, domain::parked);
 
         ctrl->add_customer("001", "Max Mustermann");
         ctrl->add_customer("002", "Elon Musk");
@@ -68,44 +68,35 @@ namespace ui {
     }
 
     void UI::menu_manager() {
-        string password;
 
-        enter_password:
-        cout << "Please enter the password: ";
-        cin >> password;
-        if (password != "admin") {
-            cout << "Wrong password, try again!\n";
-            goto enter_password;
-        } else {
-            int action = 1;
-            while (action != 0) {
-                system("pause");
+        int action = 1;
+        while (action != 0) {
+            system("pause");
 
-                print_manager_menu();
-                cin >> action;
+            print_manager_menu();
+            cin >> action;
 
-                if (action == 1) insert_scooter();
+            if (action == 1) insert_scooter();
 
-                if (action == 2) remove_scooter();
+            if (action == 2) remove_scooter();
 
-                if (action == 3) update_scooter();
+            if (action == 3) update_scooter();
 
-                if (action == 4) get_by_last_location();
+            if (action == 4) get_by_last_location();
 
-                if (action == 5) get_by_age();
+            if (action == 5) get_by_age();
 
-                if (action == 6) get_by_km();
+            if (action == 6) get_by_km();
 
-                if (action == 7) sort_age();
+            if (action == 7) sort_age();
 
-                if (action == 8) add_customer();
+            if (action == 8) add_customer();
 
-                if (action == 9) remove_customer();
+            if (action == 9) remove_customer();
 
-                if (action == 10) show_customers();
+            if (action == 10) show_customers();
 
-                //if (action == 11) update_customer();
-            }
+            //if (action == 11) update_customer();
         }
     }
 
