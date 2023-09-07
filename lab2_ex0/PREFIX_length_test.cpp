@@ -39,10 +39,14 @@ void tests() {
 
 }
 
-void verify_unit(string unit) {
+bool is_valid_unit(string unit) {
     if (unit != "km" and unit != "m" and unit != "cm" and unit != "mm" and unit != "mile" and unit != "in" and
-        unit != "ft")
-        throw std::runtime_error("Ungultige Eingabe. Gib bitte km, m, cm, mm, mile, ft oder in ein");
+        unit != "ft") {
+        cout << "\nUngultige Eingabe. Geben Sie bitte km, m, cm, mm, mile, ft oder in ein:";
+        return false;
+    }
+    return true;
+        //throw std::runtime_error("Ungultige Eingabe. Gib bitte km, m, cm, mm, mile, ft oder in ein");
 }
 
 void userdemo() {
@@ -59,15 +63,17 @@ void userdemo() {
     cin >> l1_value;
 
     cout << "\nGeben Sie die Einheit der ersten Zahl ein:";
+    input_first_unit:
     cin >> l1_unit;
-    verify_unit(l1_unit);
+    if(!is_valid_unit(l1_unit)) goto input_first_unit;
 
     cout << "\nGeben Sie den Wert der zweiten Zahl ein:";
     cin >> l2_value;
 
     cout << "\nGeben Sie die Einheit der zweiten Zahl ein:";
+    input_second_unit:
     cin >> l2_unit;
-    verify_unit(l2_unit);
+    if(!is_valid_unit(l2_unit)) goto input_second_unit;
 
     cout << "\nGeben Sie ein Skalar ein:";
     cin >> numb;
