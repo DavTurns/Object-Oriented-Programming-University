@@ -10,7 +10,7 @@ private:
     pair<string,float> dict_with_units[7];
 public:
 
-//Konstruktor
+//constructor
 Length(float, string);
 
 //getters
@@ -29,13 +29,12 @@ string text();
 int compare(Length);
 void adjust(Length&);
 
-//infixmethods
+//infix methods
 Length operator+(const Length&);
 Length operator-(const Length&);
 Length operator*(float);
 Length operator/(float);
 
-//convert
 void convert(string);
 };
 

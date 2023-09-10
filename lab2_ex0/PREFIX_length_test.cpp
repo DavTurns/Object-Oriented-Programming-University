@@ -7,46 +7,44 @@
 using namespace std;
 
 void tests() {
-    Length länge_a(10, "m");
-    Length länge_b(2000, "m");
-    Length länge_c(6, "km");
+    Length length_a(10, "m");
+    Length length_b(2000, "m");
+    Length length_c(6, "km");
 
-    //test Addieren mit Konvertierung der Länge
-    Length länge_output = länge_a + länge_c;
-    assert(länge_output.get_value() == 6010);
-    assert(länge_output.get_unit() == "m");
+    //test add with conversion
+    Length length_output = length_a + length_c;
+    assert(length_output.get_value() == 6010);
+    assert(length_output.get_unit() == "m");
 
-    //test Subtrahieren mit Konvertierung der Länge
-    länge_output = länge_c - länge_b;
-    assert(länge_output.get_value() == 4);
-    assert(länge_output.get_unit() == "km");
+    //test subtract with conversion
+    length_output = length_c - length_b;
+    assert(length_output.get_value() == 4);
+    assert(length_output.get_unit() == "km");
 
-    //test Skalieren von Länge
-    länge_output = länge_a * 3;
-    assert(länge_output.get_value() == 30);
-    assert(länge_output.get_unit() == "m");
+    //test scale
+    length_output = length_a * 3;
+    assert(length_output.get_value() == 30);
+    assert(length_output.get_unit() == "m");
 
-    //test Division von Länge
-    länge_output = länge_b / 4;
-    assert(länge_output.get_value() == 500);
-    assert(länge_output.get_unit() == "m");
+    //test division
+    length_output = length_b / 4;
+    assert(length_output.get_value() == 500);
+    assert(length_output.get_unit() == "m");
 
-    //test vergleich
-    assert(länge_a.compare(länge_b) == -1);
-    assert(länge_b.compare(länge_c) == -1);
-    assert(länge_c.compare(länge_a) == 1);
-    assert(länge_a.compare(länge_a) == 0);
-
+    //test comparison
+    assert(length_a.compare(length_b) == -1);
+    assert(length_b.compare(length_c) == -1);
+    assert(length_c.compare(length_a) == 1);
+    assert(length_a.compare(length_a) == 0);
 }
 
 bool is_valid_unit(string unit) {
     if (unit != "km" and unit != "m" and unit != "cm" and unit != "mm" and unit != "mile" and unit != "in" and
         unit != "ft") {
-        cout << "\nUngultige Eingabe. Geben Sie bitte km, m, cm, mm, mile, ft oder in ein:";
+        cout << "\nIncorrect input. Please enter km, m, cm, mm, mile, ft or in:";
         return false;
     }
     return true;
-        //throw std::runtime_error("Ungultige Eingabe. Gib bitte km, m, cm, mm, mile, ft oder in ein");
 }
 
 void userdemo() {
@@ -57,25 +55,23 @@ void userdemo() {
     string l2_unit;
     float numb;
 
-    //INPUT, Eingabeüberprüfung fehlt
-
-    cout << "\nGeben Sie den Wert der ersten Zahl ein:";
+    cout << "\nEnter value of first length:";
     cin >> l1_value;
 
-    cout << "\nGeben Sie die Einheit der ersten Zahl ein:";
+    cout << "\nEnter unit of first length:";
     input_first_unit:
     cin >> l1_unit;
     if(!is_valid_unit(l1_unit)) goto input_first_unit;
 
-    cout << "\nGeben Sie den Wert der zweiten Zahl ein:";
+    cout << "\nEnter value of second length:";
     cin >> l2_value;
 
-    cout << "\nGeben Sie die Einheit der zweiten Zahl ein:";
+    cout << "\nEnter unit of second length:";
     input_second_unit:
     cin >> l2_unit;
     if(!is_valid_unit(l2_unit)) goto input_second_unit;
 
-    cout << "\nGeben Sie ein Skalar ein:";
+    cout << "\nEnter scalar:";
     cin >> numb;
 
     Length l1(l1_value, l1_unit);

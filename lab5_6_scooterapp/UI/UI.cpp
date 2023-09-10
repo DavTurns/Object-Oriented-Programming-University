@@ -16,8 +16,8 @@ namespace ui {
         ctrl->add("ASS", "Toyota", "2012/02/04", "Rome", 9323, domain::in_service);
         ctrl->add("APP", "Toyota", "2023/04/12", "Rome", 26523, domain::parked);
         ctrl->add("BAL", "Toyota", "2022/12/02", "Slovenia", 23123, domain::out_of_use);
-        ctrl->add("CCC", "Tier", "2023/03/02", "Corfu", 8323, domain::in_use);
-        ctrl->add("KlA", "Lime", "2021/10/09", "Rimini", 96, domain::parked);
+        ctrl->add("CCC", "Tier", "2023/03/02", "London", 8323, domain::in_use);
+        ctrl->add("KlA", "Lime", "2021/10/09", "London", 96, domain::parked);
 
         ctrl->add_customer("001", "Max Mustermann");
         ctrl->add_customer("002", "Elon Musk");

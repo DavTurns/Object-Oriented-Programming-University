@@ -11,22 +11,13 @@ using namespace std;
 class DSM {
 
 public:
-    //Konstruktoren
+    //Constructors
     DSM(int);
 
     DSM(string[], int elementCount);
 
-    //Kopierkonstruktor
     DSM(const DSM &other);
 
-    //hilfsmethoden
-    int findIndex(string elementName);
-
-    void doubleCapacity();
-
-    void addNewElement(string elementName);
-
-    //methoden von Aufgaben
 
     int size();
 
@@ -64,6 +55,14 @@ private:
 
     string *elementNames;
     int **adjazenzMatrix;
+
+    //helping methods
+    int findIndex(string elementName);
+
+    void doubleCapacity();
+
+    void addNewElement(string elementName);
+
 };
 
 

@@ -18,7 +18,7 @@ class FileRepo : public Repo<Obj> {
 
 protected:
     string filepath;
-    std::map<domain::State, std::string> stateMap{
+    std::map <domain::State, std::string> stateMap{
             {domain::State::reserved,   "reserved"},
             {domain::State::parked,     "parked"},
             {domain::State::in_service, "in_service"},
@@ -27,9 +27,9 @@ protected:
     };
 public:
 
-    virtual string list_to_string(vector<shared_ptr<Obj>> &obj_list) = 0;
+    virtual string list_to_string(vector <shared_ptr<Obj>> &obj_list) = 0;
 
-    virtual vector<shared_ptr<Obj>> to_obj_list(string) = 0;
+    virtual vector <shared_ptr<Obj>> to_obj_list(string) = 0;
 
     virtual void create_new_file() = 0;
 
@@ -37,7 +37,7 @@ public:
         filepath = path;
     }
 
-    void save(vector<shared_ptr<Obj>> &obj_list) {
+    void save(vector <shared_ptr<Obj>> &obj_list) {
         string obj_list_str = list_to_string(obj_list);
         write_to_file(obj_list_str);
     }
@@ -52,7 +52,7 @@ public:
         //string content;
         ifstream file(filepath);
         if (!file) {
-            std::cerr << "Error opening the file."<<std::endl;
+            std::cerr << "Error opening the file." << std::endl;
             create_new_file();
 
             return "";
@@ -68,16 +68,16 @@ public:
         return content;
     }
 
-    bool add(shared_ptr<Obj> obj_ptr) override {
+    bool add(shared_ptr <Obj> obj_ptr) override {
         /*
-        input pointer of Obj obj
+        input pointer of obj
         output: false, if ObjObj with same id as Obj_ptr exists
                 true, if added successfully
         */
 
         //read list from file
 
-        vector<shared_ptr<Obj>> obj_list = find_all();
+        vector <shared_ptr<Obj>> obj_list = find_all();
 
         for (auto it = obj_list.begin(); it != obj_list.end(); it++) {
             if ((*it)->get_id() == (*obj_ptr).get_id()) {
@@ -92,10 +92,10 @@ public:
 
 
     bool remove(string id) override {
-//output: true if Obj found and removed successfully,
-//        else false
+        //output: true if Obj found and removed successfully,
+        //        else false
 
-        vector<shared_ptr<Obj>> obj_list = find_all();
+        vector <shared_ptr<Obj>> obj_list = find_all();
 
         for (auto it = obj_list.begin(); it != obj_list.end(); it++) {
             if ((*it)->get_id() == id) {
@@ -107,9 +107,9 @@ public:
         return false;
     }
 
-    bool update(shared_ptr<Obj> Obj_ptr) override {
-//output: true if Obj with same id exists
-//        false if Obj not updated successfully because Obj with same id as Obj_ptr doesnt exist
+    bool update(shared_ptr <Obj> Obj_ptr) override {
+        //output: true if Obj with same id exists
+        //        false if Obj not updated successfully because Obj with same id as Obj_ptr doesnt exist
 
         if (remove(Obj_ptr->get_id())) {
             add(Obj_ptr);
@@ -118,7 +118,7 @@ public:
         return false;
     }
 
-    vector<shared_ptr<Obj>> find_all() override {
+    vector <shared_ptr<Obj>> find_all() override {
         string filecontent = read_from_file();
         return to_obj_list(filecontent);
     }

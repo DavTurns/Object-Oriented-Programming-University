@@ -142,13 +142,13 @@ void teilaufgabe_b() {
                 liste_mit_gemeinsamen_ziffern[j] = -1;
             }
         }
+
         counter_für_gemeinsame_ziffern = 0;
         for (int i = 0; i < 10; i++) {
             if (liste_mit_gemeinsamen_ziffern[i] != -1) {
                 counter_für_gemeinsame_ziffern++;
             }
         }
-        //cout << counter_für_gemeinsame_ziffern<< "\n";
 
         if (counter_für_gemeinsame_ziffern > 1) {
             end_index = i;
@@ -162,7 +162,6 @@ void teilaufgabe_b() {
             start_index = i;
 
             for (int j = 0; j < 10; j++) liste_mit_gemeinsamen_ziffern[j] = j;
-
 
             // neue reihe anfangen
             for (int j = 0; j < 10; j++) {

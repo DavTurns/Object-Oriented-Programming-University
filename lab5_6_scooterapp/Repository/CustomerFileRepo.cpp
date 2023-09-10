@@ -33,6 +33,7 @@ vector<shared_ptr<domain::Customer>> CustomerFileRepo::to_obj_list(string input)
     string line;
     getline(iss, line); // this is the first line header
     while (getline(iss, line)) {
+
         // Split the line into individual values using a delimiter (e.g., comma)
         istringstream lineStream(line);
         string id, name, scooter_id;
@@ -49,6 +50,7 @@ vector<shared_ptr<domain::Customer>> CustomerFileRepo::to_obj_list(string input)
         while (getline(scooterlistStream, scooter_id, ';')) {
             reserved_scooters.push_back(scooter_id);
         }
+
         // Create a new customer object and add it to the vector
         shared_ptr<domain::Customer> customer = make_shared<domain::Customer>(id, name, reserved_scooters);
         obj_list.push_back(customer);

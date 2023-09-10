@@ -116,8 +116,8 @@ namespace controller {
         auto it = find_if(scooters.begin(), scooters.end(), [&](shared_ptr<domain::Scooter> scooter) {
             return scooter->get_id() == id;
         });
-        if (it != scooters.end()) {
 
+        if (it != scooters.end()) {
             if ((*it)->get_state() == domain::reserved) {
                 if (!logged_in_customer->has_scooter((*it)->get_id())) return false;
             }

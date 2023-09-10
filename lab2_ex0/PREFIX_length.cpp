@@ -28,8 +28,11 @@ string Length::get_unit() {
 }
 
 void Length::convert(string in_which_unit) {
+    // converts length in given unit as parameter
 
     float value_in_meters;
+
+    //converts into meter;
     for (int i = 0; i < 7; i++) {
         if (this->dict_with_units[i].first == this->unit) {
             value_in_meters = this->value * this->dict_with_units[i].second;
@@ -37,6 +40,7 @@ void Length::convert(string in_which_unit) {
         }
     }
 
+    //converts from meter to new unit
     for (int i = 0; i < 7; i++) {
         if (this->dict_with_units[i].first == in_which_unit) {
             this->value = value_in_meters / this->dict_with_units[i].second;
@@ -73,15 +77,11 @@ string Length::text() {
 }
 
 void Length::adjust(Length &l2) {
-    //passt die Einheit der Länge des Parameterobjekts an die des aufrufenden Objekts an
-    if (this->unit != l2.unit) {
-        //cout << "Einheiten der Längen nicht kompatibel\n..." << endl;
-        l2.convert(this->unit);
-    }
+    //adjusts the unit of parameter object to calling object
+    if (this->unit != l2.unit) l2.convert(this->unit);
 }
 
 int Length::compare(Length l2) {
-    //vergleicht Länge mit Parameterlänge
     this->adjust(l2);
     if (fabs(this->value - l2.value) < 0.001f)
         return 0;
@@ -90,8 +90,7 @@ int Length::compare(Length l2) {
     return 1;
 }
 
-
-//Methoden für Infixnotation
+//infix methods
 
 Length Length::operator+(const Length &operand_2) {
     return add(operand_2);
@@ -108,5 +107,3 @@ Length Length::operator*(float scalar) {
 Length Length::operator/(float divisor) {
     return divide(divisor);
 }
-
-

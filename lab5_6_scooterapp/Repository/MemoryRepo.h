@@ -20,7 +20,7 @@ namespace memoryrepo {
 
         bool add(shared_ptr<Obj> Obj_ptr) override {
             /*
-            input pointer of Obj obj
+            input pointer of obj
             output: false, if ObjObj with same id as Obj_ptr exists
                     true, if added successfully
             */
@@ -29,7 +29,7 @@ namespace memoryrepo {
                     return false;
                 }
             }
-            //if not, add the Obj
+            //if not, add obj
             obj_list.push_back(Obj_ptr);
             return true;
         }

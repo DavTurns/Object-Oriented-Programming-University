@@ -41,7 +41,7 @@ DSM::DSM(string *elementNamesInput, int elementCount) {
 DSM::DSM(const DSM &other) {
 
     if (this == &other) {
-        cout << "Objekt kopiert sich selbst! Kopierkonstruktor abgebrochen." << endl;
+        cout << "Object copies itself! Copy constructor aborted." << endl;
         return;
     }
 
@@ -220,7 +220,7 @@ int DSM::countAllLinks() {
 
 void DSM::printMatrix() {
 
-    cout << "matrix wird gedruckt...\n";
+    cout << "matrix is printed...\n";
     for (int i = 0; i < elementCount; i++) {
         for (int j = 0; j < elementCount; j++) {
             cout << adjazenzMatrix[i][j];
@@ -232,7 +232,7 @@ void DSM::printMatrix() {
 void DSM::printMatrixToFile(string file_path) {
     ofstream file(file_path, ios::out);
     if (!file.is_open()) {
-        cout << "Error - Datei nicht gefunden";
+        cout << "Error - file not found";
         return;
     }
 
