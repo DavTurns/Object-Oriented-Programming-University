@@ -2,7 +2,7 @@
 
 Welcome to the Object-Oriented Programming (OOP) University Assignments repository. This repository contains a collection of assignments related to object-oriented programming concepts. Each assignment focuses on different aspects of OOP.
 
-**If you want to run any project, just click on compile_run.bat, make sure you have g++ installed**
+**If you want to run any project, just click on compile_run.bat, make sure you have g++ installed**.
 
 ## Lab 1: Prime Numbers and Subsequences
 
